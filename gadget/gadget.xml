@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="NextBus GADGET"
+                 description="Access the CityBus MyRide system for real-time bus schedule information."
+                 author="Matt McCormick"
+                 author_email="contact@mbmccormick.com"
+                 screenshot="http://nextbuslaf.com/gadget/screenshot.png"
+                 thumbnail="http://nextbuslaf.com/gadget/thumbnail.png"
+                 title_url="http://nextbuslaf.com/index.php"
+                 scrolling="true"
+                 height="243"
+    >
+        <Require feature="dynamic-height"/>
+        <Require feature="setprefs"/>
+    </ModulePrefs>
+    <UserPref name="dcenable" display_name="Override Cookies" datatype="bool" default_value="false" />
+    <UserPref name="dcstops" display_name="QuickCodes" datatype="string" default_value="" />
+    <Content type="url" href="http://nextbuslaf.com/gadget/index.php" />
+</Module>

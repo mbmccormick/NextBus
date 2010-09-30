@@ -1,0 +1,174 @@
+body
+{
+    background-color: #1A1A1A;
+    margin: 0px auto;
+    text-align: center;
+    font-family: LED, Helvetica, Arial;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+a
+{
+    color: #1890B8;
+}
+
+.container
+{
+    left: 0;
+    margin: 0 auto;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.main
+{
+    border-top: medium none;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: left;
+}
+
+h1, h2, h3 , h4, h5, h6
+{
+    padding: 0;
+    margin: 0;
+}
+
+h3
+{
+}
+
+table tr
+{
+	background-color: #2E2E2E;
+}
+
+table tr td
+{
+	border-bottom: 3px solid #1A1A1A;
+        padding-left: 4px;
+        padding-right: 6px;
+}
+
+.header
+{
+    padding-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.header h1
+{
+	font-size: 42px;
+}
+
+
+.footer
+{
+	padding-top: 20px;
+    font-family: helvetica;
+}
+
+.footer a
+{
+    color: #ffffff;
+    text-decoration: none;
+
+}
+
+.content
+{
+    line-height: 1.5em;
+    padding-top: 20px;
+}
+
+.configure
+{
+    -moz-border-radius: 6px 6px 6px 6px;
+    border-radius: 6px;
+    border: solid 1px #D1D1D1;
+    margin: 13px 0;
+    padding: 13px 13px 13px 16px;
+    margin-bottom: 30px;
+}
+
+.stop
+{
+    margin: 13px 0;
+    margin-bottom: 30px;
+}
+
+.stop .title
+{
+    font-size: 36px;
+    line-height: 1.5em;
+    background-color: #2E2E2E;
+    border-bottom: 3px solid #1A1A1A;
+    padding-left: 4px;
+    cursor: pointer;
+}
+
+.green
+{
+    font-size: 36px;
+	line-height: 1.5em;
+}
+
+.yellow
+{
+    color: #D4B331;
+    font-size: 36px;
+    line-height: 1.5em;
+}
+
+.red
+{
+    color: #DE1830;
+    font-size: 36px;
+    line-height: 1.5em;
+}
+
+.sc
+{
+    font-size: 18px;
+}
+
+input[type="text"]
+{
+    font-size: 36px;
+    background-color: transparent;
+	border-color: #1A1A1A;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	font-family: "LED";
+	color: #ffffff;
+	width: 150px;
+}
+
+input[type="submit"]
+{
+	background-color: #ffffff;
+	font-family: "LED";
+	color: #1A1A1A;
+	border: solid 1px #ffffff;
+	font-size: 32px;
+	padding-top: 5px;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover
+{
+	color: #ffffff;
+	background-color: #000000;
+	border-color: #000000;
+}
+
+@font-face
+{
+    font-family: "LED";
+    src: url("highway.ttf");
+}
+
