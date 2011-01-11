@@ -1,11 +1,11 @@
 body
 {
-    background-color: #1A1A1A;
-    margin: 0px auto;
-    text-align: center;
-    font-family: LED, Helvetica, Arial;
-    font-size: 16px;
-    color: #ffffff;
+    background: url("http://images.apple.com/home/elements/gradient_texture20101116.jpg") repeat-x scroll 0 0 #EEEEEE;
+    color: #222;
+    font-family: 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 20px;
 }
 
 a
@@ -13,162 +13,200 @@ a
     color: #1890B8;
 }
 
-.container
+ul
 {
-    left: 0;
-    margin: 0 auto;
-    min-height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
 }
 
-.main
+h1
 {
-    border-top: medium none;
-    margin: 0 auto;
-    padding: 30px;
-    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 15px 15px 10px;
+    text-shadow: black 0px -1px 0px;
+    cursor: pointer;
 }
 
-h1, h2, h3 , h4, h5, h6
+.page
 {
-    padding: 0;
-    margin: 0;
+    margin: 0px auto;
+    width: 692px;
 }
 
-h3
+.board
 {
+    -webkit-box-shadow: black 0px 2px 4px;
+    background: url(http://culturedcode.com/status/airport-board-background-top.png) repeat-x 0% 0%, url(http://culturedcode.com/status/airport-board-background-bottom.png) repeat 0% 100%;
+    border: 1px solid #353A3B;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -moz-box-shadow:0 2px 4px #000000;
+    color: white;
+    font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+    margin: 10px 10px 50px;
+    width: 692px;
 }
 
-table tr
+.legend
 {
-	background-color: #2E2E2E;
-}
-
-table tr td
-{
-	border-bottom: 3px solid #1A1A1A;
-        padding-left: 4px;
-        padding-right: 6px;
-}
-
-.header
-{
-    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.246094);
+    color: #666;
+    font-size: 9px;
+    font-weight: bold;
+    height: 30px;
+    padding: 0px 15px;
+    position: relative;
+    text-shadow: #222 0px -1px 0px;
     text-transform: uppercase;
 }
 
-.header h1
+.legend span
 {
-	font-size: 42px;
+    display: block;
+    position: absolute;
+    top: 10px;
 }
 
+.legend .route
+{
+    left: 12px;
+}
+
+.legend .name
+{
+    left: 84px;
+}
+
+.legend .departure
+{
+    left: 532px;
+}
+
+.bus
+{
+    -webkit-background-size: 100px 100px;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.046875)), to(rgba(255, 255, 255, 0))) repeat-x;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.246094);
+    border-top: 1px solid rgba(255, 255, 255, 0.078125);
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0px;
+    padding: 45px 0px 30px;
+    position: relative;
+}
+
+.bus h2
+{
+    color: #EEE;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 38px;
+    margin: 8px 0px 16px;
+    padding: 0px 10px;
+    text-shadow: black 0px -1px 0px;
+    text-transform: uppercase;
+}
+
+.bus h2 span strong
+{
+    background-image: url(http://culturedcode.com/status/airport-display-background-right.png);
+    background-position: 100% 0%;
+    background-repeat: no-repeat;
+    display: block;
+    font-weight: inherit;
+    padding-left: 3px;
+}
+
+.bus h2 .route, .bus h2 .name, .bus h2 .departure
+{
+    background-image: url(http://culturedcode.com/status/airport-display-background-left.png);
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    display: block;
+    height: 38px;
+    margin-right: 5px;
+    overflow: hidden;
+    padding-left: 8px;
+    position: absolute;
+    top: 8px;
+}
+
+.bus h2 .route
+{
+    left: 10px;
+    width: 52px;
+}
+
+.bus h2 .name
+{
+    left: 82px;
+    width: 410px;
+}
+
+.bus h2 .departure
+{
+    left: 530px;
+    width: 140px;
+}
+
+.bus h2 span .strikethrough
+{
+    background: url(http://culturedcode.com/status/airport-display-strikethrough.png) repeat-x 0px 17px;
+    display: block;
+    height: 38px;
+    left: 2px;
+    position: absolute;
+    top: 0px;
+}
+
+.bus h2 .route .strikethrough
+{
+    width: 56px;
+}
+
+.bus h2 .name .strikethrough
+{
+    width: 414px;
+}
+
+.bus h2 .departure .strikethrough
+{
+    width: 144px;
+}
+
+.bus h2 .red.glow
+{
+    color: #FF5858;
+    text-shadow: black 0px -1px 0px, rgba(255, 88, 88, 0.796875) 0px 0px 5px;
+}
+
+.bus h2 .red
+{
+    color: #FF5858;
+}
+
+.bus h2 .green
+{
+    color: #C7FFAB;
+}
+
+.bus h2 .yellow
+{
+    color: #FFEFA1;
+}
 
 .footer
 {
-	padding-top: 20px;
+    font-size: 13px;
     font-family: helvetica;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.008);
+    margin: 0px auto;
+    text-align: center;
 }
 
 .footer a
 {
-    color: #ffffff;
-    text-decoration: none;
-
+    color: #222222;
 }
-
-.content
-{
-    line-height: 1.5em;
-    padding-top: 20px;
-}
-
-.configure
-{
-    -moz-border-radius: 6px 6px 6px 6px;
-    border-radius: 6px;
-    border: solid 1px #D1D1D1;
-    margin: 13px 0;
-    padding: 13px 13px 13px 16px;
-    margin-bottom: 30px;
-}
-
-.stop
-{
-    margin: 13px 0;
-    margin-bottom: 30px;
-}
-
-.stop .title
-{
-    font-size: 36px;
-    line-height: 1.5em;
-    background-color: #2E2E2E;
-    border-bottom: 3px solid #1A1A1A;
-    padding-left: 4px;
-    cursor: pointer;
-}
-
-.green
-{
-    font-size: 36px;
-	line-height: 1.5em;
-}
-
-.yellow
-{
-    color: #D4B331;
-    font-size: 36px;
-    line-height: 1.5em;
-}
-
-.red
-{
-    color: #DE1830;
-    font-size: 36px;
-    line-height: 1.5em;
-}
-
-.sc
-{
-    font-size: 18px;
-}
-
-input[type="text"]
-{
-    font-size: 36px;
-    background-color: transparent;
-	border-color: #1A1A1A;
-	border-top: none;
-	border-left: none;
-	border-right: none;
-	font-family: "LED";
-	color: #ffffff;
-	width: 150px;
-}
-
-input[type="submit"]
-{
-	background-color: #ffffff;
-	font-family: "LED";
-	color: #1A1A1A;
-	border: solid 1px #ffffff;
-	font-size: 32px;
-	padding-top: 5px;
-	cursor: pointer;
-}
-
-input[type="submit"]:hover
-{
-	color: #ffffff;
-	background-color: #000000;
-	border-color: #000000;
-}
-
-@font-face
-{
-    font-family: "LED";
-    src: url("highway.ttf");
-}
-

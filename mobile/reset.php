@@ -7,6 +7,6 @@
 
     echo "Your cookies have been reset.";
 
-    header("Location: http://mbmccormick.com/labs/nextbus/index.php");
+    header("Location: http://nextbuslaf.com/mobile/");
     
 ?>
