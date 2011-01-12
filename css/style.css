@@ -20,15 +20,6 @@ ul
     padding: 0px;
 }
 
-h1
-{
-    font-size: 24px;
-    font-weight: bold;
-    padding: 15px 15px 10px;
-    text-shadow: black 0px -1px 0px;
-    cursor: pointer;
-}
-
 .page
 {
     margin: 0px auto;
@@ -47,6 +38,47 @@ h1
     font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
     margin: 10px 10px 50px;
     width: 692px;
+}
+
+.header
+{
+    font-size: 24px;
+    font-weight: bold;
+    padding: 25px 15px 25px 15px;
+    text-shadow: black 0px -1px 0px;
+}
+
+.header a
+{
+    text-decoration: none;
+    color: #fff;
+}
+
+.header p
+{
+    font-size: 11px;
+    color: #999;
+    padding: 0px;
+    margin: 0px;
+    font-weight: normal;
+    text-shadow: none;
+    padding: 2px 0px 0px 1px;
+}
+
+.stop
+{
+    color: #999;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: #222 0px -1px 0px;
+    text-transform: uppercase;
+    padding: 0px 0px 0px 15px;
+}
+
+.stop a
+{
+    color: #999;
+    text-decoration: none;
 }
 
 .legend
