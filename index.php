@@ -3,7 +3,9 @@
 <head>
     <title>NextBus WEB</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <META HTTP-EQUIV="Refresh" CONTENT="60">
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.tipsy.js"></script>
+    <meta http-equiv="refresh" content="60">
 </head>
 <body>
     <?php
@@ -28,7 +30,7 @@
                         </td>
                         <td align="right" style="width: 60%; padding-top: 4px;">
                             <div class="stop">
-                                <a onClick="changeStop();" style="cursor: pointer;" title="Click here to change your bus stop."><?php echo str_replace("(Shelter)", "", $data[name]); ?></a>
+                                <a class="tooltip" onClick="changeStop();" style="cursor: pointer;" title="Click here to change your bus stop."><?php if ($data[name] != "") echo str_replace(" (at Shelter)", "", str_replace(" (Shelter)", "", $data[name])); else echo "N/A"; ?></a>
                             </div>
                         </td>
                     </tr>
@@ -42,7 +44,9 @@
             <ul>
                 <?php
                 
-                    if ($data->Bus != null)
+                    $count = 0;
+                    
+                    if ($data != null)
                     {
                         foreach ($data->Bus as $t)
                         {
@@ -64,7 +68,7 @@
                             if ($diffmins <= 1)
                                 $departure = "Departing";
                             else if ($diffmins < 20)
-                                $departure = floor($diffmins) . " minutes";
+                                $departure = floor($diffmins) . " mins";
                             else
                                 $departure = date("g:i A", $arritime);;
                             
@@ -72,12 +76,48 @@
                             echo "<span class='name'><span class='strikethrough'></span><strong>" . $name . "</strong></span>\n";
                             if ($diffmins <= 7)
                                 echo "<span class='departure red glow'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
-                            elseif ($diffmins <= 15)
+                            else if ($diffmins <= 15)
                                 echo "<span class='departure yellow'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
-                            elseif ($diffmins < 20)
+                            else if ($diffmins < 20)
                                 echo "<span class='departure green'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
                             else
                                 echo "<span class='departure'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
+                            echo "</h2>\n";
+                            echo "</li>\n";
+                            
+                            $count++;
+                        }
+                    }
+                    
+                    if ($count == 0)
+                    {
+                        if ($data == null)
+                        {
+                            echo "<li class='bus'>\n";
+                            echo "<h2>\n";
+                            echo "<span class='route'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
+                            echo "<span class='name'><span class='strikethrough'></span><strong>Information not available.</strong></span>\n";
+                            echo "<span class='departure'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
+                            echo "</h2>\n";
+                            echo "</li>\n";
+                        }
+                        else if ($data[name] == "")
+                        {
+                            echo "<li class='bus'>\n";
+                            echo "<h2>\n";
+                            echo "<span class='route'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
+                            echo "<span class='name'><span class='strikethrough'></span><strong>Invalid bus stop QuickCode.</strong></span>\n";
+                            echo "<span class='departure'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
+                            echo "</h2>\n";
+                            echo "</li>\n";
+                        }
+                        else
+                        {
+                            echo "<li class='bus'>\n";
+                            echo "<h2>\n";
+                            echo "<span class='route'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
+                            echo "<span class='name'><span class='strikethrough'></span><strong>No departures scheduled.</strong></span>\n";
+                            echo "<span class='departure'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
                             echo "</h2>\n";
                             echo "</li>\n";
                         }
@@ -87,11 +127,15 @@
             </ul>
         </div>
         <div class="footer">
+            Also available for <a href="/mobile/">mobile</a> and <a href="http://fusion.google.com/add?source=atgs&moduleurl=http%3A//nextbuslaf.com/gadget/gadget.xml">iGoogle</a>.<br />
+            <br />
             Copyright &copy; 2011 <a target="_blank" href="http://www.mccormicktechnologies.com/" style="text-decoration: none;">McCormick Technologies LLC</a>. All rights reserved.
         </div>
     </div>
     <script type="text/javascript">
     
+        $(".tooltip").tipsy({gravity: "n"});
+        
         function changeStop()
         {
             var stop = prompt("Please enter the QuickCode (BUS###) for your bus stop.");

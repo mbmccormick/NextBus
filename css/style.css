@@ -1,6 +1,6 @@
 body
 {
-    background: url("http://images.apple.com/home/elements/gradient_texture20101116.jpg") repeat-x scroll 0 0 #EEEEEE;
+    background: url("../img/bg.jpg") repeat-x scroll 0 0 #EEEEEE;
     color: #222;
     font-family: 'Lucida Grande', Verdana, Helvetica, Arial, sans-serif;
     font-size: 12px;
@@ -29,7 +29,7 @@ ul
 .board
 {
     -webkit-box-shadow: black 0px 2px 4px;
-    background: url(http://culturedcode.com/status/airport-board-background-top.png) repeat-x 0% 0%, url(http://culturedcode.com/status/airport-board-background-bottom.png) repeat 0% 100%;
+    background: url("../img/board-background-top.png") repeat-x 0% 0%, url("../img/board-background-bottom.png") repeat 0% 100%;
     border: 1px solid #353A3B;
     border-radius: 5px;
     -moz-border-radius: 5px;
@@ -143,7 +143,7 @@ ul
 
 .bus h2 span strong
 {
-    background-image: url(http://culturedcode.com/status/airport-display-background-right.png);
+    background-image: url("../img/display-background-right.png");
     background-position: 100% 0%;
     background-repeat: no-repeat;
     display: block;
@@ -153,7 +153,7 @@ ul
 
 .bus h2 .route, .bus h2 .name, .bus h2 .departure
 {
-    background-image: url(http://culturedcode.com/status/airport-display-background-left.png);
+    background-image: url("../img/display-background-left.png");
     background-position: 0% 0%;
     background-repeat: no-repeat;
     display: block;
@@ -185,7 +185,7 @@ ul
 
 .bus h2 span .strikethrough
 {
-    background: url(http://culturedcode.com/status/airport-display-strikethrough.png) repeat-x 0px 17px;
+    background: url("../img/display-strikethrough.png") repeat-x 0px 17px;
     display: block;
     height: 38px;
     left: 2px;
@@ -242,3 +242,16 @@ ul
 {
     color: #222222;
 }
+
+.tipsy { padding: 5px; font-size: 10px; position: absolute; z-index: 100000; }
+.tipsy-inner { padding: 5px 8px 4px 8px; background-color: black; color: white; max-width: 200px; text-align: center; }
+.tipsy-inner { border-radius: 3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+.tipsy-arrow { position: absolute; background: url("../img/tipsy.gif") no-repeat top left; width: 9px; height: 5px; }
+.tipsy-n .tipsy-arrow { top: 0; left: 50%; margin-left: -4px; }
+.tipsy-nw .tipsy-arrow { top: 0; left: 10px; }
+.tipsy-ne .tipsy-arrow { top: 0; right: 10px; }
+.tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -4px; background-position: bottom left; }
+.tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; background-position: bottom left; }
+.tipsy-se .tipsy-arrow { bottom: 0; right: 10px; background-position: bottom left; }
+.tipsy-e .tipsy-arrow { top: 50%; margin-top: -4px; right: 0; width: 5px; height: 9px; background-position: top right; }
+.tipsy-w .tipsy-arrow { top: 50%; margin-top: -4px; left: 0; width: 5px; height: 9px; }
