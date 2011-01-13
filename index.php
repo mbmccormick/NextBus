@@ -65,8 +65,10 @@
                             $route = str_replace("-", "", $route);
                             $route = substr($route, 0, 3);
                             
-                            if ($diffmins <= 1)
+                            if ($diffmins < 1)
                                 $departure = "Departing";
+                            else if ($diffmins == 1)
+                                $departure = "1 min";
                             else if ($diffmins < 20)
                                 $departure = floor($diffmins) . " mins";
                             else
