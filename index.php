@@ -6,15 +6,46 @@
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/jquery.tipsy.js"></script>
     <meta http-equiv="refresh" content="60">
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6872595-11']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
 </head>
 <body>
     <?php
     
         if (isset($_GET[stop]) == true)
+        {
             $data = simplexml_load_file("http://myride.gocitybus.com/widget/Default1.aspx?pt=30&code=" . $_GET[stop]);
+            $stopCode = $_GET[stop];
+        }
         else
+        {
             $data = simplexml_load_file("http://myride.gocitybus.com/widget/Default1.aspx?pt=30&code=BUS271");
-    
+            $stopCode = "BUS271";
+        }
+        
+        $stopName = $data[name];
+        if ($stopName != "") 
+        {
+            $stopName = str_replace("(at Shelter)", "", $stopName);
+            $stopName = str_replace("(@ Shelter)", "", $stopName);
+            $stopName = str_replace("(Shelter)", "", $stopName);
+            $stopName = str_replace("- " . strtoupper($stopCode), "", $stopName);
+            $stopName = trim($stopName);
+        }
+        else 
+        {
+            $stopName = "N/A";
+        }
+        
     ?>
     <div class="page">
         <div class="board">
@@ -30,7 +61,7 @@
                         </td>
                         <td align="right" style="width: 60%; padding-top: 4px;">
                             <div class="stop">
-                                <a class="tooltip" onClick="changeStop();" style="cursor: pointer;" title="Click here to change your bus stop."><?php if ($data[name] != "") echo str_replace(" (at Shelter)", "", str_replace(" (Shelter)", "", $data[name])); else echo "N/A"; ?></a>
+                                <a class="tooltip" onClick="changeStop();" style="cursor: pointer;" title="Click here to change your bus stop."><?php echo $stopName; ?></a>
                             </div>
                         </td>
                     </tr>
@@ -76,9 +107,9 @@
                             
                             echo "<span class='route'><span class='strikethrough'></span><strong>" . $route . "</strong></span>\n";
                             echo "<span class='name'><span class='strikethrough'></span><strong>" . $name . "</strong></span>\n";
-                            if ($diffmins <= 7)
+                            if ($diffmins <= 5)
                                 echo "<span class='departure red glow'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
-                            else if ($diffmins <= 15)
+                            else if ($diffmins <= 10)
                                 echo "<span class='departure yellow'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
                             else if ($diffmins < 20)
                                 echo "<span class='departure green'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
