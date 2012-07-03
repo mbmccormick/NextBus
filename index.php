@@ -30,7 +30,7 @@
         {
             var stop = prompt("Please enter your bus stop code:");
             if (stop != null)
-                location.href = "http://apps.mbmccormick.com/nextbuslaf/?stop=" + stop;
+                location.href = "http://nextbus.azurewebsites.net/?stop=" + stop;
         }
     
     </script>
