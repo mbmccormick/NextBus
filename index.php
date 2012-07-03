@@ -2,9 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>NextBus WEB</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.tipsy.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.tipsy.js"></script>
     <meta http-equiv="refresh" content="60">
     <script type="text/javascript">
       var _gaq = _gaq || [];
@@ -18,7 +19,21 @@
       })();
     </script>
 </head>
-<body>
+<body>	
+    <script type="text/javascript">
+    
+		$(document).ready(function() {
+			$(".tooltip").tipsy({gravity: "n"});
+		});
+        
+        function changeStop()
+        {
+            var stop = prompt("Please enter your bus stop code:");
+            if (stop != null)
+                location.href = "http://apps.mbmccormick.com/nextbuslaf/?stop=" + stop;
+        }
+    
+    </script>
     <?php
     
         if (isset($_GET[stop]) == true)
@@ -50,29 +65,18 @@
     <div class="page">
         <div class="board">
             <div class="header">
-                <table cellpadding="0" cellspacing="0" style="width: 100%;">
-                    <tr valign="middle">
-                        <td>
-                            <img src="/img/logo.png" />
-                        </td>
-                        <td align="left" style="width: 40%; padding-top: 2px; padding-left: 10px;">
-                            <a href="/">NextBus Departures</a><br />
-                            <p>Powered by CityBus MyRide</p>
-                        </td>
-                        <td align="right" style="width: 60%; padding-top: 4px;">
-                            <div class="stop">
-                                <a class="tooltip" onClick="changeStop();" style="cursor: pointer;" title="Click here to change your bus stop."><?php echo $stopName; ?></a>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                <a class="tooltip" onClick="changeStop();" style="cursor: pointer;" title="Click here to change your bus stop."><?php echo $stopName; ?></a>
+				<p>Powered by OneTransitAPI</p>
             </div>
-            <div class="legend">
-                <span class="route">Route</span>
-                <span class="name">Name</span>
-                <span class="departure">Departure</span>
-            </div>
-            <ul>
+			<table style="width: 100%; padding: 0px 15px;" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th class="route">Route</th>
+						<th class="name">Name</th>
+						<th class="departure">Departure</th>
+					</tr>
+				</thead>
+				<tbody>
                 <?php
                 
                     $count = 0;
@@ -85,8 +89,7 @@
                             $arritime = $currtime + (trim(str_replace("min", "", $t->TimeTillArrival)) * 60);
                             $diffmins = ($arritime - $currtime) / 60;
                             
-                            echo "<li class='bus'>\n";
-                            echo "<h2>\n";
+                            echo "<tr>\n";
                             
                             $route = explode(" ", $t->RouteName);
                             $route = $route[0];
@@ -105,18 +108,17 @@
                             else
                                 $departure = date("g:i A", $arritime);;
                             
-                            echo "<span class='route'><span class='strikethrough'></span><strong>" . $route . "</strong></span>\n";
-                            echo "<span class='name'><span class='strikethrough'></span><strong>" . $name . "</strong></span>\n";
+                            echo "<td class='route'><span class='strikethrough'></span><strong>" . $route . "</strong></td>\n";
+                            echo "<td class='name'><span class='strikethrough'></span><strong>" . $name . "</strong></td>\n";
                             if ($diffmins <= 5)
-                                echo "<span class='departure red glow'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
+                                echo "<td class='departure red glow'><span class='strikethrough'></span><strong>" . $departure . "</strong></td>\n";
                             else if ($diffmins <= 10)
-                                echo "<span class='departure yellow'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
+                                echo "<td class='departure yellow'><span class='strikethrough'></span><strong>" . $departure . "</strong></td>\n";
                             else if ($diffmins < 20)
-                                echo "<span class='departure green'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
+                                echo "<td class='departure green'><span class='strikethrough'></span><strong>" . $departure . "</strong></td>\n";
                             else
-                                echo "<span class='departure'><span class='strikethrough'></span><strong>" . $departure . "</strong></span>\n";
-                            echo "</h2>\n";
-                            echo "</li>\n";
+                                echo "<td class='departure'><span class='strikethrough'></span><strong>" . $departure . "</strong></td>\n";
+                            echo "</tr>\n";
                             
                             $count++;
                         }
@@ -126,56 +128,34 @@
                     {
                         if ($data == null)
                         {
-                            echo "<li class='bus'>\n";
-                            echo "<h2>\n";
-                            echo "<span class='route'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
-                            echo "<span class='name'><span class='strikethrough'></span><strong>Information not available.</strong></span>\n";
-                            echo "<span class='departure'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
-                            echo "</h2>\n";
-                            echo "</li>\n";
+                            echo "<tr>\n";
+                            echo "<td class='route'><span class='strikethrough'></span><strong>N/A</strong></td>\n";
+                            echo "<td class='name'><span class='strikethrough'></span><strong>Information not available.</strong></td>\n";
+                            echo "<td class='departure'><span class='strikethrough'></span><strong>N/A</strong></td>\n";
+                            echo "</tr>\n";
                         }
                         else if ($data[name] == "")
                         {
-                            echo "<li class='bus'>\n";
-                            echo "<h2>\n";
-                            echo "<span class='route'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
-                            echo "<span class='name'><span class='strikethrough'></span><strong>Invalid bus stop QuickCode.</strong></span>\n";
-                            echo "<span class='departure'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
-                            echo "</h2>\n";
-                            echo "</li>\n";
+                            echo "<tr>\n";
+                            echo "<td class='route'><span class='strikethrough'></span><strong>N/A</strong></td>\n";
+                            echo "<td class='name'><span class='strikethrough'></span><strong>Invalid bus stop code.</strong></td>\n";
+                            echo "<td class='departure'><span class='strikethrough'></span><strong>N/A</strong></td>\n";
+                            echo "</tr>\n";
                         }
                         else
                         {
-                            echo "<li class='bus'>\n";
-                            echo "<h2>\n";
-                            echo "<span class='route'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
-                            echo "<span class='name'><span class='strikethrough'></span><strong>No departures scheduled.</strong></span>\n";
-                            echo "<span class='departure'><span class='strikethrough'></span><strong>N/A</strong></span>\n";
-                            echo "</h2>\n";
-                            echo "</li>\n";
+                            echo "<tr>\n";
+                            echo "<td class='route'><span class='strikethrough'></span><strong>N/A</strong></td>\n";
+                            echo "<td class='name'><span class='strikethrough'></span><strong>No departures scheduled.</strong></td>\n";
+                            echo "<td class='departure'><span class='strikethrough'></span><strong>N/A</strong></td>\n";
+                            echo "</tr>\n";
                         }
                     }
                 
                 ?>
-            </ul>
-        </div>
-        <div class="footer">
-            Also available for <a href="/mobile/">mobile</a> and <a href="http://fusion.google.com/add?source=atgs&moduleurl=http%3A//nextbuslaf.com/gadget/gadget.xml">iGoogle</a>.<br />
-            <br />
-            Copyright &copy; 2011 <a target="_blank" href="http://www.mccormicktechnologies.com/" style="text-decoration: none;">McCormick Technologies LLC</a>. All rights reserved.
+				</tbody>
+			</table>
         </div>
     </div>
-    <script type="text/javascript">
-    
-        $(".tooltip").tipsy({gravity: "n"});
-        
-        function changeStop()
-        {
-            var stop = prompt("Please enter the QuickCode (BUS###) for your bus stop.");
-            if (stop != null)
-                location.href = "http://nextbuslaf.com/?stop=" + stop;
-        }
-    
-    </script>
 </body>
 </html>
