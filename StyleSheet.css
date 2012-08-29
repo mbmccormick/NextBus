@@ -66,6 +66,14 @@
         margin: 10px;
     }
 
+    #header {
+        font-size: 100%;
+    }
+
+    .stopTime {
+        font-size: 100%;
+    }
+
     .routeName {
         display: none;
     }
