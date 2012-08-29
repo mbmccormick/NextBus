@@ -59,6 +59,13 @@
 }
 
 @media screen and (max-width:720px) {
+    body {
+    }
+
+    #page {
+        margin: 10px;
+    }
+
     .routeName {
         display: none;
     }
