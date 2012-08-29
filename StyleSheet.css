@@ -1,5 +1,5 @@
 ﻿body {
-    font-family: 'Segoe UI', Arial;
+    font-family: 'Segoe UI', Helvetica, Arial;
     font-weight: 100;
     width: 100%;
     padding: 0;
@@ -61,7 +61,7 @@
 
 @media screen and (max-width:720px) {
     body {
-        font-family: 'Segoe WP', 'Segoe UI', Arial;
+        font-family: 'Segoe WP', 'Segoe UI', Helvetica, Arial;
     }
 
     #page {
