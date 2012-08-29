@@ -42,7 +42,7 @@
 
 .routeNumber {
     display: table-cell;
-    min-width: 100px;
+    min-width: 80px;
     width: 10%;
 }
 
@@ -54,7 +54,7 @@
 .arrivalTime {
     display: table-cell;
     text-align: right;
-    min-width: 200px;
+    min-width: 150px;
     width: 15%;
 }
 
@@ -76,9 +76,5 @@
 
     .routeName {
         display: none;
-    }
-
-    .arrivalTime {
-        margin-right: 20px;
     }
 }
