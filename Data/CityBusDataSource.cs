@@ -16,10 +16,7 @@ namespace NextBus.Data
         {
             get
             {
-                if (DateTime.UtcNow.IsDaylightSavingTime())
-                    return -4;
-                else
-                    return -5;
+                return -4;
             }
         }
 
