@@ -77,4 +77,8 @@
     .routeName {
         display: none;
     }
+
+    .arrivalTime {
+        margin-right: 20px;
+    }
 }
