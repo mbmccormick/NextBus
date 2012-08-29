@@ -18,14 +18,14 @@
             <div id="content">
                 <asp:ListView ID="lstStopTimes" runat="server">
                     <ItemTemplate>
-                        <div class="stopTime <%# Eval("CssClass") %>">
+                        <div class="stopTime">
                             <div class="routeNumber">
                                 <%# Eval("RouteNumber") %>
                             </div>
                             <div class="routeName">
                                 <%# Eval("RouteName") %>
                             </div>
-                            <div class="arrivalTime">
+                            <div class="arrivalTime <%# Eval("CssClass") %>">
                                 <%# Eval("FriendlyArrivalTime") %>
                             </div>
                         </div>

@@ -13,8 +13,10 @@
 
 #header {
     font-size: 250%;
-    color: #ffffff;
-    margin-bottom: 30px;
+    color: #000000;
+    background-color: #F5DF38;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 #content {
@@ -48,22 +50,22 @@
 
 .routeName {
     display: table-cell;
-    width: 75%;
 }
 
 .arrivalTime {
     display: table-cell;
     text-align: right;
     min-width: 150px;
-    width: 15%;
+    width: 10%;
 }
 
 @media screen and (max-width:720px) {
     body {
+        font-family: 'Segoe WP', 'Segoe UI', Arial;
     }
 
     #page {
-        margin: 10px;
+        margin: 20px;
     }
 
     #header {
