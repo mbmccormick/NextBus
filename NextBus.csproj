@@ -61,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="Libraries\LumenWorks.Framework.IO.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="StyleSheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
