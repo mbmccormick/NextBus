@@ -67,11 +67,11 @@ namespace NextBus.Data
 
                 if (timeTillArrival == "DUE")
                 {
-                    stopTime.ArrivalTime = DateTime.Now;
+                    stopTime.ArrivalTime = DateTime.UtcNow.AddHours(-5);
                 }
                 else
                 {
-                    stopTime.ArrivalTime = DateTime.Now.AddMinutes(Convert.ToInt32(timeTillArrival.Replace("min", "")));
+                    stopTime.ArrivalTime = DateTime.UtcNow.AddHours(-5).AddMinutes(Convert.ToInt32(timeTillArrival.Replace("min", "")));
                 }
 
                 stopTimes.Add(stopTime);

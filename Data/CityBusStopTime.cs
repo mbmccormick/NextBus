@@ -30,7 +30,7 @@ namespace NextBus.Data
         {
             get
             {
-                int minutes = Convert.ToInt32((ArrivalTime - DateTime.Now).TotalMinutes);
+                int minutes = Convert.ToInt32((ArrivalTime - DateTime.UtcNow.AddHours(-5)).TotalMinutes);
 
                 if (minutes < 0)
                     return "";
@@ -41,7 +41,7 @@ namespace NextBus.Data
                 else if (minutes > 15)
                     return ArrivalTime.ToString("h:mm tt");
                 else
-                    return Convert.ToInt32((ArrivalTime - DateTime.Now).TotalMinutes) + " mins";
+                    return Convert.ToInt32((ArrivalTime - DateTime.UtcNow.AddHours(-5)).TotalMinutes) + " mins";
             }
         }
 
@@ -49,7 +49,7 @@ namespace NextBus.Data
         {
             get
             {
-                int minutes = Convert.ToInt32((ArrivalTime - DateTime.Now).TotalMinutes);
+                int minutes = Convert.ToInt32((ArrivalTime - DateTime.UtcNow.AddHours(-5)).TotalMinutes);
 
                 if (minutes < 0)
                     return "white";
