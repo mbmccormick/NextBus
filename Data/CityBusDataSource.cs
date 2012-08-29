@@ -12,6 +12,17 @@ namespace NextBus.Data
 {
     public class CityBusDataSource
     {
+        public static int TimeZoneOffset
+        {
+            get
+            {
+                if (DateTime.UtcNow.IsDaylightSavingTime())
+                    return -4;
+                else
+                    return -5;
+            }
+        }
+
         public ObservableCollection<CityBusStop> Stops()
         {
             ObservableCollection<CityBusStop> stops = new ObservableCollection<CityBusStop>();
@@ -64,11 +75,11 @@ namespace NextBus.Data
 
                 if (timeTillArrival == "DUE")
                 {
-                    stopTime.ArrivalTime = DateTime.UtcNow.AddHours(-5);
+                    stopTime.ArrivalTime = DateTime.UtcNow.AddHours(CityBusDataSource.TimeZoneOffset);
                 }
                 else
                 {
-                    stopTime.ArrivalTime = DateTime.UtcNow.AddHours(-5).AddMinutes(Convert.ToInt32(timeTillArrival.Replace("min", "")));
+                    stopTime.ArrivalTime = DateTime.UtcNow.AddHours(CityBusDataSource.TimeZoneOffset).AddMinutes(Convert.ToInt32(timeTillArrival.Replace("min", "")));
                 }
 
                 stopTimes.Add(stopTime);
