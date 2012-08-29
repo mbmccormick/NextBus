@@ -27,10 +27,7 @@ namespace NextBus.Data
                 stop.ID = fields[1];
                 stop.Name = fields[3];
 
-                if (stop.ID.ToUpper() == "BUS271" ||
-                    stop.ID.ToUpper() == "BUS300" ||
-                    stop.ID.ToUpper() == "BUS547")
-                    stops.Add(stop);
+                stops.Add(stop);
             }
 
             return stops;
