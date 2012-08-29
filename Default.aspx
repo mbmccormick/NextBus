@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>NextBus</title>
-    <!--<meta http-equiv="refresh" content="20" />-->
+    <meta http-equiv="refresh" content="20" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <link rel="stylesheet" href="StyleSheet.css" />
 </head>
